@@ -28,22 +28,16 @@
 
 .binary-colors {
   &-left {
-    @include flex-grid-column(
-      $columns: 6,
-      $gutter: 0
+    @include color-box(
+      $justify: flex-start,
+      $color: blue
     );
-    background-color: green;
-    height: 100%;
-    max-width: 100%;
   }
   &-right {
-    @include flex-grid-column(
-      $columns: 6,
-      $gutter: 0
+    @include color-box(
+      $justify: flex-end,
+      $color: green
     );
-    background-color: blue;
-    height: 100%;
-    max-width: 100%;
   }
 }
 
@@ -68,12 +62,34 @@
 }
 
 .binary-slider {
-  @include flex-grid-column(
-    $columns: 8
-  );
+
 }
 
 .binary-slider {
+  margin-left: auto;
+  margin-right: auto;
+  height: 3rem;
+  width: 100%;
+  &-handle {
+    height: 3rem;
+    width: 4rem;
+    background-color: white;
+  -webkit-box-shadow: 0 8px 5px -6px black;
+     -moz-box-shadow: 0 8px 5px -6px black;
+          box-shadow: 0 8px 5px -6px black; 
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex: 0 0 50%;
+    &-icon {
+      align-items: center;
+      i {
+        margin: auto;
+        font-size: 2rem;
+      }
+    }
+  }
   &-word {
     text-align: center;
     @include flex-grid-column(

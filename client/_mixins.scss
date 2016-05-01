@@ -5,3 +5,20 @@
   overflow: $overflow;
   backface-visibility: hidden;
 }
+
+@mixin color-box ($justify, $color) {
+  @include flex-grid-column(
+    $columns: 6,
+    $gutter: 0
+  );
+  background-color: $color;
+  height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: $justify;   
+  h2 {
+    padding: 0rem 2rem;
+  }
+}

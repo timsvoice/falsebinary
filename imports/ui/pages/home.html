@@ -2,8 +2,16 @@
   <div class="home-container">
     
     <div class="binary-colors-container">
-      <div class="binary-colors-left"></div>
-      <div class="binary-colors-right"></div>
+      <div class="binary-colors-left">
+        <div class="binary-option">
+        <h2>{{optionOne}}</h2>
+        </div>
+      </div>
+      <div class="binary-colors-right">
+        <div class="binary-option">
+        <h2>{{optionTwo}}</h2>
+        </div>
+      </div>
     </div>
     
     <div class="binary-container">
@@ -14,20 +22,18 @@
       </div>
       
       <div class="binary-slider-container">
-        <div class="binary-slider-word">
+<!--         <div class="binary-slider-word">
           <h2>{{optionOne}}</h2>
-        </div>
+        </div> -->
         
         <div class="binary-slider">
-          <div class="slider round" id="binarySlider" data-slider data-initial-start="50" data-end="100">
-            <span class="slider-handle"  data-slider-handle role="slider" tabindex="1"></span>
-            <input type="hidden" id="binarySliderInput">
+          <div class="binary-slider-handle" id="sliderHandle">
           </div>
         </div>
 
-        <div class="binary-slider-word">
-          <h2>{{optionTwo}}</h2>
-        </div>
+<!--         <div class="binary-slider-word">
+          
+        </div> -->
       </div>
 
       <div class="binary-submit">
