@@ -1,0 +1,7 @@
+@mixin frame ($wrap, $overflow) {
+  display: flex;
+  flex-flow: column $wrap;
+  max-height: 100vh;
+  overflow: $overflow;
+  backface-visibility: hidden;
+}
