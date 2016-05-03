@@ -1,15 +1,25 @@
-<template name="Home">
-  <div class="home-container">
-    
+<template name="Home">  
+  <div class="topbar">
+    <div class="topbar-left">
+    </div>
+    <div class="topbar-right">
+      <ul>
+        <li><a id="binaryAdd">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="home-container">    
     <div class="binary-colors-container">
-      <div class="binary-colors-left">
+      <div class="binary-colors-left {{options.optionOne.color}}">
         <div class="binary-option">
-        <h2>{{optionOne}}</h2>
+        <h2 id="optionOneWord">{{options.optionOne.word}}</h2>
         </div>
       </div>
-      <div class="binary-colors-right">
+      <div class="binary-colors-right {{options.optionOne.color}}">
         <div class="binary-option">
-        <h2>{{optionTwo}}</h2>
+        <h2 id="optionTwoWord">{{options.optionTwo.word}}</h2>
         </div>
       </div>
     </div>
@@ -18,28 +28,22 @@
 
       <div class="binary-header-container">
         <h1>False Binary</h1>
-        <p>On a scale of {{optionOne}} to {{optionTwo}}, where are you?</p>
       </div>
       
       <div class="binary-slider-container">
-<!--         <div class="binary-slider-word">
-          <h2>{{optionOne}}</h2>
-        </div> -->
         
         <div class="binary-slider">
           <div class="binary-slider-handle" id="sliderHandle">
           </div>
         </div>
 
-<!--         <div class="binary-slider-word">
-          
-        </div> -->
       </div>
 
       <div class="binary-submit">
-        <div class="button">That's me!</div>
+        <div class="button" id="responseSubmit">That's me!</div>
       </div>
 
     </div>
   </div>
+  {{> Reveal }}
 </template>

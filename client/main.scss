@@ -1,5 +1,6 @@
 @import '{zurb:foundation-sites}/scss/foundation';
 @import "./mixins";
+@import "./variables";
 
 @include foundation-global-styles;
 @include foundation-flex-grid;
@@ -38,3 +39,4 @@
 @include foundation-top-bar;
 
 @import "../imports/ui/pages/home.scss";
+@import "../imports/ui/pages/topbar.scss";

@@ -1,0 +1,31 @@
+.topbar {
+  @include top-bar-container();
+  height: 3.75rem;
+  position: absolute;
+  width: 100%;
+  background-color: transparent !important;
+  &-title {
+    @extend .top-bar-title;
+    ul {
+      @extend .menu;
+    }
+  }    
+  &-right {
+    @extend .top-bar-right;
+    ul {
+      @extend .menu, .dropdown;      
+      background-color: transparent; 
+      li {
+        a {
+          color: $color-white;
+          &:hover {
+            color: $color-medium-gray;
+          }
+        }
+      }     
+    }
+  }
+  &-title {
+    @extend .menu-text;
+  }
+}

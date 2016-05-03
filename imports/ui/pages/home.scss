@@ -1,4 +1,69 @@
-.home-container {
+.button {
+  background-color: $color-white;
+  color: $color-black;
+  border-radius: 0.25rem;
+  font-family: $header-font;
+  font-size: 1rem;
+  font-weight: $text-heavy;
+  &:hover {
+    background-color: $light-gray;
+    color: $color-black;
+  }
+}
+
+.red {
+  background-color: #F44336;
+}
+.pink {
+  background-color: #E91E63;
+}
+.purple {
+  background-color: #9C27B0;
+}
+.indigo {
+  background-color: #3F51B5;
+}
+.blue {
+  background-color: #2196F3;
+}
+.cyan {
+  background-color: #00BCD4;
+}
+.teal {
+  background-color: #009688;
+}
+.gray {
+  background-color: #607D8B;
+}
+.light-green {
+  background-color: #8BC34A
+} 
+.lime {
+  background-color: #CDDC39
+} 
+.yellow {
+  background-color: #FFEB3B
+} 
+.orange {
+  background-color: #FF9800
+} 
+
+.binary-color-box {
+  height: 3rem;
+  width: 3rem;
+  margin-right: 0.25rem;
+  display: inline-block;
+}
+
+.selected {
+  border: 0.125rem solid $color-light-gray;
+}
+
+.hidden {
+  display: none;
+}
+
+.home-container, .response-container {
   height: 100vh;
   @include frame(
     $wrap: nowrap,
@@ -12,6 +77,10 @@
   );
 }
 
+.response-container {
+  @extend .cyan;
+}
+
 .binary-colors-container {
   position: absolute;
   height: 100vh;
@@ -22,6 +91,12 @@
   );
 }
 
+.binary-option {
+  h2 {
+    font-family: $header-font;
+  }
+}
+
 .binary-container {
   width: 100%;
 }
@@ -29,31 +104,32 @@
 .binary-colors {
   &-left {
     @include color-box(
-      $justify: flex-start,
-      $color: blue
+      $justify: flex-start
     );
   }
   &-right {
     @include color-box(
-      $justify: flex-end,
-      $color: green
+      $justify: flex-end
     );
   }
 }
 
 .binary-header-container {
-  width: 100%;  
+  width: 100%;
   @include flex-grid-row(
     $columns: 12,
     $gutter: 0
   );
   h1, p {
+    font-family: $header-font;
+    font-weight: $text-heavy;
     text-align: center;
     @include flex-grid-column(12);    
   }
 }
 
 .binary-slider-container {
+  height: 10rem;
   width: 100%;
   @include flex-grid-row(
     $columns: 12,
@@ -70,9 +146,11 @@
   margin-right: auto;
   height: 3rem;
   width: 100%;
+  text-align: center;
   &-handle {
     height: 3rem;
     width: 4rem;
+    margin-top: 3rem;
     background-color: white;
   -webkit-box-shadow: 0 8px 5px -6px black;
      -moz-box-shadow: 0 8px 5px -6px black;
@@ -89,6 +167,12 @@
         font-size: 2rem;
       }
     }
+    &:hover {
+      cursor: col-resize;
+    }
+  }
+  h3 {
+    margin-bottom: 3rem;
   }
   &-word {
     text-align: center;

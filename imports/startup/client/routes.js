@@ -10,3 +10,10 @@ FlowRouter.route('/', {
     BlazeLayout.render('Home')
   }
 })
+
+FlowRouter.route('/response/:id', {
+  name: 'app.response',
+  action: function (params, queryParams) {    
+    BlazeLayout.render('Response')
+  }
+})

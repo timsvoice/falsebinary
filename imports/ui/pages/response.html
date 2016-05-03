@@ -1,0 +1,31 @@
+<template name="Response">  
+  <div class="topbar">
+    <div class="topbar-left">
+    </div>
+    <div class="topbar-right">
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <div class="response-container">    
+    
+    <div class="binary-container">
+
+      <div class="binary-header-container">
+        <h1>False Binary</h1>
+      </div>
+      
+      <div class="binary-slider-container">
+        
+    <div class="binary-slider">
+      <h3>You're {{response.option_one.percentage}}% {{response.option_one.word}} and {{response.option_two.percentage}}% {{response.option_two.word}}!</h3>
+      <div class="button" id="playAgain">Play Again</div>
+    </div>
+
+      </div>
+
+    </div>
+  </div>
+  {{> Reveal }}
+</template>

@@ -1,0 +1,22 @@
+<template name="Reveal">
+  <div id="binaryReveal" class="reveal" data-reveal>
+    {{> BinaryForm }}
+  </div>
+</template>
+
+<template name="BinaryForm">
+  <form id="binaryForm">
+    <fieldset>
+      <legend>Add a Binary</legend>
+      <label class="control-label">Word</label>
+      <input type="text" id="binaryWordInput">
+    </fieldset>
+    <fieldset>
+      <legend>Color</legend>               
+      {{#each colors}}
+        <input type="radio" name="binary-color" value="{{color}}" id="{{name}}Radio"><label for="{{name}}Radio" id="colorLabel"><div class="binary-color-box {{name}}" id="{{name}}"></div></label>
+      {{/each}}
+    </fieldset>
+    <div class="button secondary" id="binaryFormSubmit">Save</div>      
+  </form>
+</template>
