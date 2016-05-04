@@ -16,6 +16,9 @@ Template.Home.events({
     const optionOneWidth = $('.binary-colors-left').width();
     const optionTwoWidth = $('.binary-colors-right').width();
     
+    const optionOneColor = $('.binary-colors-left').attr('id');
+    const optionTwoColor = $('.binary-colors-right').attr('id');
+
     const optionOneWord = $('#optionOneWord').text();
     const optionTwoWord = $('#optionTwoWord').text();
 
@@ -26,14 +29,17 @@ Template.Home.events({
     const response = {
       option_one: {
         word: optionOneWord,
+        color: optionOneColor,
         percentage: optionOnePercentage
       },
       option_two: {
         word: optionTwoWord,
+        color: optionTwoColor,
         percentage: optionTwoPercentage
       },
 
     }
+    console.log(response);
     Meteor.call('add.response', response, function(err, res) {
       if (!err) {
         FlowRouter.go('/response/' + res);
@@ -74,6 +80,7 @@ Template.Home.onRendered(function () {
       y: '50%'
     },
     onDrag(element, x, y, event) {
+      console.log(x);
       const leftValue = Math.max((x / ($(window).width() - 64)) * 100, 0);
       const rightValue = Math.min(100 - leftValue, 100);      
       $('.binary-colors-left').css('flex-basis', leftValue + '%');

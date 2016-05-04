@@ -17,6 +17,9 @@ Responses.schema = new SimpleSchema({
   'options_one.word': {
     type: String,
   },
+  'options_one.color': {
+    type: String,
+  },  
   'options_one.percentage': {
     type: String,
   },  
@@ -26,6 +29,9 @@ Responses.schema = new SimpleSchema({
   'options_two.word': {
     type: String,
   },
+  'options_two.color': {
+    type: String,
+  },  
   'options_two.percentage': {
     type: String,
   },  

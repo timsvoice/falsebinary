@@ -12,8 +12,16 @@ Template.Response.events({
 Template.Response.helpers({
   response() {
     const responseID = FlowRouter.current().params.id;
-    console.log(responseID);
-    return Responses.findOne(responseID);
+    const response = Responses.findOne(responseID)
+    const x = parseInt(response.option_one.percentage) / 100;
+
+    const leftValue = response.option_one.percentage;
+    const rightValue = response.option_two.percentage;      
+    console.log(response);
+    $('.binary-colors-left').css('flex-basis', leftValue + '%');
+    $('.binary-colors-right').css('flex-basis', rightValue + '%');
+
+    return response;
   }
 })
 

@@ -9,11 +9,13 @@ export const addResponse = new ValidatedMethod({
   run({ option_one, option_two }) {
     const response = { 
       option_one: {
-        word: option_one.word, 
+        word: option_one.word,
+        color: option_one.color, 
         percentage: option_one.percentage
       },
       option_two: {
-        word: option_two.word, 
+        word: option_two.word,
+        color: option_two.color, 
         percentage: option_two.percentage
       }      
     };
