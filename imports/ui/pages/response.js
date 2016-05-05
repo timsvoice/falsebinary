@@ -17,7 +17,7 @@ Template.Response.helpers({
 
     const leftValue = response.option_one.percentage;
     const rightValue = response.option_two.percentage;      
-    console.log(response);
+
     $('.binary-colors-left').css('flex-basis', leftValue + '%');
     $('.binary-colors-right').css('flex-basis', rightValue + '%');
 

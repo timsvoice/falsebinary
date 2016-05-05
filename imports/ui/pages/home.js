@@ -39,7 +39,6 @@ Template.Home.events({
       },
 
     }
-    console.log(response);
     Meteor.call('add.response', response, function(err, res) {
       if (!err) {
         FlowRouter.go('/response/' + res);
@@ -56,11 +55,25 @@ Template.Home.helpers({
     return 'False Binary'
   },
   options() {
-    const binaries = Binaries.find().fetch();    
-    const optionOne = binaries[Math.floor(Math.random() * binaries.length)];
-    const optionTwo = binaries[Math.floor(Math.random() * binaries.length)];
+    let options = Session.get('binaries');
+    if (options.optionOne == undefined) {
+      const binaries = Binaries.find().fetch();    
+      let optionOne = binaries[Math.floor(Math.random() * binaries.length)];
+      let optionTwo = binaries[Math.floor(Math.random() * binaries.length)];      
+      const checker = function (options) {
+        if (options.optionOne.color == options.optionTwo.color || options.optionOne.word == options.optionTwo.word) {
+          optionTwo = binaries[Math.floor(Math.random() * binaries.length)];
+          checker(options)
+        }
+        return options;
+      }      
 
-    return { optionOne, optionTwo }
+      let options = { optionOne: optionOne, optionTwo: optionTwo }
+
+      options = checker(options);
+      Session.set('binaries', options);
+    }
+    return options;
 
   },
   formCollection() {
@@ -69,6 +82,10 @@ Template.Home.helpers({
   binary() {
     return Binaries.findOne();
   },
+})
+
+Template.Home.onCreated(function () {
+  this.subscribe('binaries.all');
 })
 
 Template.Home.onRendered(function () {
@@ -80,7 +97,6 @@ Template.Home.onRendered(function () {
       y: '50%'
     },
     onDrag(element, x, y, event) {
-      console.log(x);
       const leftValue = Math.max((x / ($(window).width() - 64)) * 100, 0);
       const rightValue = Math.min(100 - leftValue, 100);      
       $('.binary-colors-left').css('flex-basis', leftValue + '%');
@@ -88,6 +104,6 @@ Template.Home.onRendered(function () {
     },
   }
   new Draggable (element, options);  
-  this.subscribe('binaries.all');
+  Session.set('binaries', '');
   this.newBinary = new Foundation.Reveal($('#binaryReveal'));
 });

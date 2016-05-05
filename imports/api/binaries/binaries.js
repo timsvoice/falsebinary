@@ -14,7 +14,6 @@ Binaries.schema = new SimpleSchema({
   'word': {
     type: String,
     label: 'Word',
-    unique: true    
   },
   'color': {
     type: String,
