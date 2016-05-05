@@ -8,6 +8,12 @@ import { addBinary } from '../../api/binaries/methods.js';
 Template.BinaryForm.events({
   'click .binary-color-box'(event) {
     const color = $(event.currentTarget).attr('id');
+    $('.binary-color-box').each(function(){
+      if($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      }
+    })
+    $(event.currentTarget).addClass('active');
     Session.set('color', color);
   },
   'click #binaryFormSubmit'(event) {

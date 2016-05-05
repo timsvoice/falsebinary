@@ -14,9 +14,9 @@
     <fieldset>
       <legend>Color</legend>               
       {{#each colors}}
-        <input type="radio" name="binary-color" value="{{color}}" id="{{name}}Radio"><label for="{{name}}Radio" id="colorLabel"><div class="binary-color-box {{name}}" id="{{name}}"></div></label>
+        <input type="radio" name="binary-color" value="{{color}}" id="{{name}}Radio" class="hidden"><label for="{{name}}Radio" id="colorLabel"><div class="binary-color-box {{name}}" id="{{name}}"></div></label>
       {{/each}}
     </fieldset>
-    <div class="button secondary" id="binaryFormSubmit">Save</div>      
+    <div class="button" id="binaryFormSubmit">Submit</div>      
   </form>
 </template>
