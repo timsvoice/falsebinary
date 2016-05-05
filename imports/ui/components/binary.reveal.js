@@ -14,7 +14,7 @@ Template.BinaryForm.events({
     const word = $('#binaryWordInput').val();
     const color = Session.get('color');
     const binary = {
-      name: word,
+      word: word,
       color: color
     }
     Meteor.call('add.binary', binary);
